@@ -80,12 +80,14 @@ def main():
 
     # Call the Gmail API
     
+    email_address = input("Enter email address to athenticate: ")
+
     email_body = "The string that we need to send"
-    message = create_message("tjgurwara@gmail.com", "tjgurwara@gmail.com", "test", email_body)
-    
+    message = create_message(email_address, "me", "test", email_body) # change "me" to the email address that you want to send it to
+
     send_message(service, "tjgurwara@gmail.com", message)
 
-
+    # I need to add code for removing the token.pickle file
 
 
 if __name__ == '__main__':
