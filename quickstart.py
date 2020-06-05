@@ -8,6 +8,7 @@ import base64
 from email.mime.text import MIMEText
 import mimetypes
 import os
+from apiclient import errors, discovery
 
 
 # If modifying these scopes, delete the file token.pickle.
@@ -81,11 +82,14 @@ def main():
     # Call the Gmail API
     
     email_address = input("Enter email address to athenticate: ")
+    sending_to = email_address # Change it to where you wanna send it to (assuming that this is static)
+    
+    print(email_address)
 
     email_body = "The string that we need to send"
-    message = create_message(email_address, "me", "test", email_body) # change "me" to the email address that you want to send it to
+    message = create_message(email_address, sending_to, "test", email_body)
 
-    send_message(service, "tjgurwara@gmail.com", message)
+    send_message(service, email_address, message)
 
     # I need to add code for removing the token.pickle file
 
